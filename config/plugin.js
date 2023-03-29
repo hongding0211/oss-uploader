@@ -3,7 +3,7 @@
 /** @type Egg.EggPlugin */
 module.exports = {
   auth: {
-    enable: true,
+    enable: false,
     package: '@hong97/egg-auth',
   },
 }
