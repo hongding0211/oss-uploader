@@ -18,6 +18,13 @@ module.exports = (appInfo) => {
   // add your middleware config here
   config.middleware = []
 
+  const oss = {
+    accessKeyId: 'LTAI5tPw8zjHFS4ZbKKm5mk9',
+    accessKeySecret: 'lGZsspkEAiXRn3pmjWUMKQ5XVo7ayb',
+    region: 'oss-cn-shanghai',
+    bucket: 'ltd-hong97-imgs',
+  }
+
   const token = {
     tokenKey: '_1680087732091_2813',
   }
@@ -31,5 +38,6 @@ module.exports = (appInfo) => {
     ...config,
     token,
     traffic,
+    oss,
   }
 }
