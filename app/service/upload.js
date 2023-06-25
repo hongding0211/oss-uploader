@@ -13,11 +13,12 @@ class UploadService extends Service {
     })
   }
 
-  genKey({ fileName, contentType, app = 'common' }) {
+  genKey({ fileName, contentType, raw, app = 'common' }) {
     const { path, name } = genFilePath(fileName, app)
     return {
       url: this.store.signatureUrl(path, {
         method: 'PUT',
+        process: raw ? undefined : 'image/quality,q_90',
         'Content-Type': contentType,
       }),
       filePath: this.store.generateObjectUrl(path),
