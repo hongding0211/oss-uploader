@@ -6,4 +6,8 @@ module.exports = {
     enable: false,
     package: '@hong97/egg-auth',
   },
+  validate: {
+    enable: true,
+    package: 'egg-validate',
+  },
 }

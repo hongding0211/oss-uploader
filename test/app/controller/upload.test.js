@@ -1,9 +1,22 @@
 'use strict'
 
-const { app } = require('egg-mock/bootstrap')
+const { app, assert } = require('egg-mock/bootstrap')
 
 describe('test/app/controller/upload.test.js', () => {
-  it('GET /upload', async () => {
-    return app.httpRequest().get('/upload/genKey').expect(200)
+  it('POST /upload', async () => {
+    const fileName = 'foo.jpg'
+    return app
+      .httpRequest()
+      .post('/upload/genKey')
+      .send({
+        fileName,
+      })
+      .expect(200)
+      .then((res) => {
+        assert(res.body.success, true)
+        assert.deepEqual(res.body.data, {
+          fileName,
+        })
+      })
   })
 })
