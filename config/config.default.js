@@ -41,10 +41,16 @@ module.exports = (appInfo) => {
     maxRequest: 1000,
   }
 
+  const cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  }
+
   return {
     ...config,
     token,
     traffic,
     oss,
+    cors,
   }
 }
